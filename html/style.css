@@ -1,0 +1,142 @@
+* {
+    font-family: 'Doppio One', sans-serif;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: transparent;
+}
+
+.box {
+    position: relative;
+    width: 380px;
+    height: 420px;
+    background: rgb(20, 20, 20);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent, rgb(255, 255, 255), rgb(255, 255, 255));
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent, rgb(255, 255, 255), rgb(255, 255, 255));
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.form {
+    position: absolute;
+    inset: 5px;
+    background: rgb(20, 20, 20);
+    z-index: 10;
+    border-radius: 6px;
+    padding: 35px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form h1 {
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.inputBox {
+    position: relative;
+    width: 300px;
+    margin-top: 15px;
+}
+
+.inputBox input {
+    position: relative;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: rgb(17, 17, 17);
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    border-radius: 8px;
+}
+
+.inputBox select {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    border: none;
+    outline: none;
+    color: rgb(17, 17, 17);
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    border-radius: 8px;
+}
+
+.inputBox label {
+    position: relative;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    font-weight: 550;
+}
+
+.form input {
+    position: relative;
+    margin-top: 35px;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.form a {
+    position: relative;
+    font-size: 10px;
+    color: white;
+    margin-top: 15px;
+    right: -50%;
+}
+
+input[type="submit"] {
+    position: relative;
+    border: none;
+    outline: none;
+    background: white;
+    padding: 11px 25px;
+    width: 100px;
+    margin-top: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+}
