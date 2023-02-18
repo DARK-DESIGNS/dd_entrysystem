@@ -24,8 +24,13 @@ RegisterServerEvent('dd_entrysystem:whitelistStatus', function()
     MySQL.Async.fetchAll('SELECT * FROM `dd_entrysystem` WHERE `characterid` = ?',
     {CitizenID},
     function(result)
-        local whitelistResult = result[1].whitelisted
-
+        local whitelistResult = nil
+        --local whitelistResult = result[1].whitelisted
+        if result[1].whitelisted == nil then
+            whitelistResult = false
+        else
+            whitelistResult = result[1].whitelisted
+        end
         if not whitelistResult == "true" and not whitelistResult == "false" then
             local whitelistResult2 = false
             TriggerClientEvent('dd_entrysystem:setWhitelistStatus', -1, whitelistResult2)

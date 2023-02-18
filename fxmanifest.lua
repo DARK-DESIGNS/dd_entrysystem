@@ -3,7 +3,9 @@ game 'gta5'
 
 author 'DARK DESIGNS'
 description 'An Entry system made for QB-Core'
-version '1.0.0'
+version '1.0.1'
+
+lua54 'on'
 
 ui_page 'html/index.html'
 
