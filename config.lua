@@ -43,5 +43,5 @@ Config.webhookCallAdminText = "An player wants to entry with the player ID: "
 -- Discord Logs --
 
 Config.enabled = true --true/false
-Config.url = "https://discord.com/api/webhooks/1076574296262058115/tyGCZg3lsno2FtYkQet6zLpdJXaDS7GZThU0xcVJJRHV7VJ17xF01nVe6Ckd5BP_03Rm" -- Your Discord webhook url
+Config.url = "https://discord.com/api/webhooks/..." -- Your Discord webhook url
 Config.webhookText = "A player tries to escape the Entryzone with the player ID: "

@@ -5,6 +5,8 @@ author 'DARK DESIGNS'
 description 'An Entry system made for QB-Core'
 version '1.1.0'
 
+lua54 'on'
+
 ui_page 'html/index.html'
 
 files {
