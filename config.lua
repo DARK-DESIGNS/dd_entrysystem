@@ -21,10 +21,12 @@ Config.exitPoint = vector4(-1037.91, -2738.17, 20.17, 327.08) -- the exit of the
 
 Config.staffSpawn = vector4(-1099.87, -2752.3, 20.34, 243.1) -- where the staff player gets teleported at when using "/joinentry"
 
--- LANG --
-Config.staffName = "~r~[Entry Team]" -- Only you can see the tag (will change in future versions)
+Config.callAdminMarker = vector3(-1092.94, -2760.62, 20.35) -- Point where player can call Admins
 
-Config.exitText = 'Press ~p~E~s~ to exit the airport' -- keep this line: ~p~E~s~
+-- LANG --
+Config.staffName = "~r~[Entry Team]"
+
+Config.exitText = 'Press ~p~E~s~ to exit the airport'
 
 Config.noPermission = "You have no Permission to do that!"
 Config.wrongID = "There is no player with this ID!"
@@ -35,12 +37,11 @@ Config.staffLeaveMessage = "You left the entryteam"
 
 Config.spawnMessage = "Welcome in Los Santos"
 
+Config.callAdminText = "Press ~p~E~s~ to call an Entry Team Member"
+Config.webhookCallAdminText = "An player wants to entry with the player ID: "
+
 -- Discord Logs --
 
 Config.enabled = true --true/false
-Config.url = "https://discord.com/api/webhooks/..." -- Your Discord webhook url
-Config.webhookText = {
-    eins = "The player: ",
-    zwei = " with the server ID: ",
-    drei = " has been teleported back to spawn because he was not entryed"
-}
+Config.url = "https://discord.com/api/webhooks/1076574296262058115/tyGCZg3lsno2FtYkQet6zLpdJXaDS7GZThU0xcVJJRHV7VJ17xF01nVe6Ckd5BP_03Rm" -- Your Discord webhook url
+Config.webhookText = "A player tries to escape the Entryzone with the player ID: "

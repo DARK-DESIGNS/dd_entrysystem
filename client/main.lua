@@ -21,6 +21,7 @@ local playerPermission = nil
 local oldPlayerPos = nil
 
 local isStaff = false
+local called = false
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     TriggerServerEvent("dd_entrysystem:whitelistStatus")
@@ -64,6 +65,18 @@ Citizen.CreateThread(function()
             end
         end
 
+        if Vdist(Config.callAdminMarker, playerPos) <= 100.0 then
+            local callAdminMarker = DrawMarker(27, Config.callAdminMarker, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.0, 3.0, 3.0, 124, 0, 206, 150, false, false, 2, true, false, false, false)
+            if Vdist(Config.callAdminMarker, playerPos) <= 2.0 then
+                showInfobar(Config.callAdminText)
+                if IsControlJustReleased(0, 38) and called == false then
+                    called = true
+                    local serverId = GetPlayerServerId(PlayerId())
+                    TriggerServerEvent("dd_entrysystem:webhook", Config.webhookCallAdminText .. serverId)
+                end
+            end
+        end
+    
         if isStaff == true then
             Draw3DText(playerPos.x, playerPos.y, playerPos.z + 0.9, 0.5, Config.staffName)
         end
@@ -80,10 +93,9 @@ Citizen.CreateThread(function()
             if Vdist(Config.spawn, playerPos) >= Config.spawnDistace then
                 SetEntityCoords(playerPed, Config.spawn, false)
                 local serverId = GetPlayerServerId(PlayerId())
-                TriggerServerEvent("dd_entrysystem:webhook", serverId)
+                TriggerServerEvent("dd_entrysystem:webhook", Config.webhookText .. serverId)
             end
         elseif whitelistStatus == "true" then
-            --print("true")
         end
 
         Citizen.Wait(5000)

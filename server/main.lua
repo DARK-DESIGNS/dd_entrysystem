@@ -25,7 +25,6 @@ RegisterServerEvent('dd_entrysystem:whitelistStatus', function()
     {CitizenID},
     function(result)
         local whitelistResult = nil
-        --local whitelistResult = result[1].whitelisted
         if result[1].whitelisted == nil then
             whitelistResult = false
         else
@@ -89,14 +88,23 @@ RegisterServerEvent("dd_entrysystem:nuiCallback", function(source)
     end
 end)
 
-RegisterServerEvent("dd_entrysystem:webhook", function(serverId)
-    local url = Config.url
+RegisterServerEvent("dd_entrysystem:webhook", function(message)
     local image = "https://i.imgur.com/ojnT8YE.png"
-    local author = "dd_entrysystem"
-    local text = Config.webhookText.eins .. GetPlayerName(source) .. Config.webhookText.zwei .. serverId .. Config.webhookText.drei
-
-    PerformHttpRequest(url, function(error, text, header)
-    end,
-    'POST',
-    json.encode({username = author, content = text, avatar_url = image,}), {["Content-Type"] = 'application/json'})
+    local name = "dd_entrysystem"
+    local footer = "Created from DARK DESIGNS"
+    local color = 16777215
+    local embed = {
+          {
+              ["color"] = color,
+              ["title"] = "**".. name .."**",
+              ["description"] = message,
+              ["footer"] = {
+                  ["text"] = footer,
+              },
+          }
+      }
+  
+    PerformHttpRequest(Config.url, function(err, text, headers)
+    end, 'POST',
+    json.encode({username = name, embeds = embed, avatar_url = image}), { ['Content-Type'] = 'application/json' })
 end)
